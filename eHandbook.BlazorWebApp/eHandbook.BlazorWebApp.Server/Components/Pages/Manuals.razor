@@ -1,0 +1,75 @@
+﻿@page "/manuals"
+@inject EHandBookApiService api
+@inject ManualStateService ItemState
+@inject NavigationManager navigationManager
+@* By using StreamRendering(true), you can enhance the user experience by allowing the component to render progressively, which is especially useful for components that perform long-running tasks or load data from external sources. *@
+@attribute [StreamRendering(true)]
+
+
+<PageTitle>Manuals</PageTitle>
+
+<h1>Manuals</h1>
+
+<p>This component demonstrates showing Manuals data.</p>
+
+@if (manuals == null)
+{
+    <p><em> Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Id</td>
+                <th>Description</th>
+                <th>Path</th>
+                <th>Auditable Props</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+         @foreach (var manual in manuals)
+            {
+                <tr>
+                    <td>@manual.Id</td>
+                    <td>@manual.Description</td>
+                    <td>@manual.Path</td>
+                    <td>@manual.AuditableDetails.IsDeleted</td>
+                    <td>
+                        <button class="btn btn-primary">Edit</button>
+                        <button class="btn btn-danger">Delete</button>
+                        <a href="/manuals/@manual.Id" class="btn btn-success">Details</a>
+                        <button @onclick="() => NavigateToItem(manual.Id)">View Item</button>
+                    </td>
+
+                </tr>
+             } 
+        </tbody>
+    </table>
+}
+
+@code {
+
+    //define List of records type of Manual
+   
+    private IEnumerable<Manual> manuals;
+    private Guid Id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await api.GetItemsAsync();
+       
+        if (response != null && response.Metadata != null && response.Metadata.Succeeded == true)
+        {
+            // Proceed with your logic
+            manuals = response.Data.Where(e => !e.AuditableDetails.IsDeleted);
+        }
+    }
+
+    //No working. Inspect why later.
+    private void NavigateToItem(Guid itemId)
+    {
+        navigationManager.NavigateTo($"/manuals/{itemId}");
+    }
+}

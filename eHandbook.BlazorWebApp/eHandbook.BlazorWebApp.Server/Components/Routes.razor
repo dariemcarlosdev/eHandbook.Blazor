@@ -1,0 +1,11 @@
+﻿<Router AppAssembly="typeof(Program).Assembly" PreferExactMatches="@true" AdditionalAssemblies="new[] { typeof(Client._Imports).Assembly }">
+    <Found Context="routeData">
+        <RouteView RouteData="routeData" DefaultLayout="typeof(Layout.MainLayout)" />
+        <FocusOnNavigate RouteData="routeData" Selector="h1" />
+    </Found>
+    <NotFound>
+    <LayoutView>
+            <p>Sorry, we haven't found any pizzas here to show.</p>
+    </LayoutView>
+    </NotFound>
+</Router>

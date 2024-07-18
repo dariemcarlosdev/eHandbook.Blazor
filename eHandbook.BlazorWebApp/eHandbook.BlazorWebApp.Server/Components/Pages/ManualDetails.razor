@@ -1,0 +1,82 @@
+﻿@* Restrict the route parameter to the correct data type *@
+@page "/manuals/{Id}"
+@using eHandbook.BlazorWebApp.Shared.Domain.Entities
+@using eHandbook.BlazorWebApp.Shared.Services
+@inject NavigationManager navigationManager
+@inject EHandBookApiService api
+
+<h3>ManualDetails</h3>
+
+@if (isLoading)
+{
+    <p> Loading...</p>
+}
+
+else if (notFound)
+{
+    <div>
+        <p>Sorry, the requested manual could not be found.</p>
+        <button class="btn btn-primary" @onclick="GoBack">Go Back</button>
+    </div>
+}
+else if(manual != null)
+{
+    // Render manual details
+  <BlazorCard Title="Manual Details" SubTitle="Manual Details" CardType="CardType.Default">
+    <CardHeader>
+        <h5 class="card-title">Manual Details</h5>
+    </CardHeader>
+    <CardBody>
+        <dl>
+            <dt>Description</dt>
+            <dd>@manual.Description</dd>
+            <dt>Path</dt>
+            <dd>@manual.Path</dd>
+            <dt>IsDeleted</dt>
+            <dd>@manual.AuditableDetails.IsDeleted</dd>
+        </dl>
+    </CardBody>
+    <CardFooter>
+        <button class="btn btn-primary">Edit</button>
+        <button class="btn btn-danger">Delete</button>
+        <button class="btn btn-success">View</button>
+    </CardFooter>
+</BlazorCard>
+  
+}
+else
+{
+    <div>
+        <p>Manual details could not be loaded at this time. Please try again later.</p>
+        <button class="btn btn-primary" @onclick="GoBack">Go Back</button>
+    </div>
+}
+@code {
+    [Parameter] public string Id { get; set; }
+    private Manual manual;
+    private bool notFound = false; // Flag to indicate if the manual was not found
+    private bool isLoading = true; // Flag to indicate the loading state to prevent the rendering of the manual details until the fetch operation is complete.
+
+    protected override async Task OnParametersSetAsync()
+    {
+        isLoading = true;
+        var response = await api.GetItemAsync(Id);
+
+        if (response.Metadata?.Succeeded == true)
+        {
+            manual = response.Data!;
+            notFound = false; //ensure notFoud is reset in case of parameter changes
+        }
+        else
+        {
+            notFound = true; // Set the flag to true if the manual is not found
+        }
+        isLoading = false; //end loading
+    }
+    void GoBack()
+    {
+        navigationManager.NavigateTo("/manuals");
+    }
+}
+
+

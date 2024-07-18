@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "GxrFFaytYzw/fkHsC9bo0HN6lPkXXebaYM6kW5/StB6ZqqTB2BdYdKRc6dIY7Wc65zaQomSjX59a7XceWZzZjQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\335286\\Documents\\WORK\\PROJECTS\\EHANDBOOK.APP\\eHandbook.Blazor\\eHandbook.BlazorWebApp\\eHandbook.BlazorWebApp.Shared\\eHandbook.BlazorWebApp.Shared.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\335286\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\8.0.0\\microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\335286\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
+    "C:\\Users\\335286\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\335286\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\335286\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
+    "C:\\Users\\335286\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512"
+  ],
+  "logs": []
+}
