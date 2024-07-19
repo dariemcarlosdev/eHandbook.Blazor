@@ -58,3 +58,13 @@ C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook
 C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook.BlazorWebApp\eHandbook.BlazorWebApp.Server\obj\Debug\net8.0\eHandbook.BlazorWebApp.Server.pdb
 C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook.BlazorWebApp\eHandbook.BlazorWebApp.Server\obj\Debug\net8.0\eHandbook.BlazorWebApp.Server.genruntimeconfig.cache
 C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook.BlazorWebApp\eHandbook.BlazorWebApp.Server\obj\Debug\net8.0\ref\eHandbook.BlazorWebApp.Server.dll
+C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook.BlazorWebApp\eHandbook.BlazorWebApp.Server\bin\Debug\net8.0\pub\web.config
+C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook.BlazorWebApp\eHandbook.BlazorWebApp.Server\bin\Debug\net8.0\pub\appsettings.Development.json
+C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook.BlazorWebApp\eHandbook.BlazorWebApp.Server\bin\Debug\net8.0\pub\appsettings.json
+C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook.BlazorWebApp\eHandbook.BlazorWebApp.Server\bin\Debug\net8.0\pub\BlazorDebugProxy\BrowserDebugHost.runtimeconfig.json
+C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook.BlazorWebApp\eHandbook.BlazorWebApp.Server\bin\Debug\net8.0\pub\eHandbook.BlazorWebApp.Server.deps.json
+C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook.BlazorWebApp\eHandbook.BlazorWebApp.Server\bin\Debug\net8.0\pub\eHandbook.BlazorWebApp.Server.runtimeconfig.json
+C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook.BlazorWebApp\eHandbook.BlazorWebApp.Server\bin\Debug\net8.0\pub\wwwroot\appsettings.Development.json
+C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook.BlazorWebApp\eHandbook.BlazorWebApp.Server\bin\Debug\net8.0\pub\wwwroot\appsettings.json
+C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook.BlazorWebApp\eHandbook.BlazorWebApp.Server\bin\Debug\net8.0\pub\wwwroot\_framework\blazor.boot.json
+C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook.BlazorWebApp\eHandbook.BlazorWebApp.Server\obj\Debug\net8.0\eHandbook.BlazorWebApp.Server.sourcelink.json
