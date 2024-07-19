@@ -1035,3 +1035,4 @@ C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook
 C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook.BlazorWebApp\eHandbook.BlazorWebApp.Client\obj\Debug\net8.0\refint\eHandbook.BlazorWebApp.Client.dll
 C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook.BlazorWebApp\eHandbook.BlazorWebApp.Client\obj\Debug\net8.0\eHandbook.BlazorWebApp.Client.pdb
 C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook.BlazorWebApp\eHandbook.BlazorWebApp.Client\obj\Debug\net8.0\ref\eHandbook.BlazorWebApp.Client.dll
+C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook.BlazorWebApp\eHandbook.BlazorWebApp.Client\obj\Debug\net8.0\eHandbook.BlazorWebApp.Client.sourcelink.json
