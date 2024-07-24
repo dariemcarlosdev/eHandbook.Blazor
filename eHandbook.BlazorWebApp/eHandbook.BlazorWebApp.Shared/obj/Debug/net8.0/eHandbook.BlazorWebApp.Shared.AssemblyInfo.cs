@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("eHandbook.BlazorWebApp.Shared")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+38960b5dcbbd036c0a869642d9ebde1fccf88535")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+14953616f60dac80697ea7cd40aec844c1aa19be")]
 [assembly: System.Reflection.AssemblyProductAttribute("eHandbook.BlazorWebApp.Shared")]
 [assembly: System.Reflection.AssemblyTitleAttribute("eHandbook.BlazorWebApp.Shared")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
