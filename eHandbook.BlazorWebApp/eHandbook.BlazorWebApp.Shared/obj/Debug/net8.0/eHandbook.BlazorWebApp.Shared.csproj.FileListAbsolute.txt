@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook.BlazorWebApp\eHandbook.BlazorWebApp.Shared\bin\Debug\net8.0\eHandbook.BlazorWebApp.Shared.deps.json
 C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook.BlazorWebApp\eHandbook.BlazorWebApp.Shared\bin\Debug\net8.0\eHandbook.BlazorWebApp.Shared.dll
 C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook.BlazorWebApp\eHandbook.BlazorWebApp.Shared\bin\Debug\net8.0\eHandbook.BlazorWebApp.Shared.pdb
@@ -11,3 +12,5 @@ C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook
 C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook.BlazorWebApp\eHandbook.BlazorWebApp.Shared\obj\Debug\net8.0\refint\eHandbook.BlazorWebApp.Shared.dll
 C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook.BlazorWebApp\eHandbook.BlazorWebApp.Shared\obj\Debug\net8.0\eHandbook.BlazorWebApp.Shared.pdb
 C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook.BlazorWebApp\eHandbook.BlazorWebApp.Shared\obj\Debug\net8.0\ref\eHandbook.BlazorWebApp.Shared.dll
+=======
+>>>>>>> 9edf5b2f35bdc00e66233f2e6ba625e935f92cff

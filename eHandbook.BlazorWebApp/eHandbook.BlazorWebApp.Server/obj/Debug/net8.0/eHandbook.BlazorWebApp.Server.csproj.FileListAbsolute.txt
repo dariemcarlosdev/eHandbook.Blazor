@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook.BlazorWebApp\eHandbook.BlazorWebApp.Server\bin\Debug\net8.0\eHandbook.BlazorWebApp.Client.staticwebassets.runtime.json
 C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook.BlazorWebApp\eHandbook.BlazorWebApp.Server\bin\Debug\net8.0\pub\web.config
 C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook.BlazorWebApp\eHandbook.BlazorWebApp.Server\bin\Debug\net8.0\appsettings.Development.json
@@ -68,3 +69,5 @@ C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook
 C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook.BlazorWebApp\eHandbook.BlazorWebApp.Server\obj\Debug\net8.0\eHandbook.BlazorWebApp.Server.pdb
 C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook.BlazorWebApp\eHandbook.BlazorWebApp.Server\obj\Debug\net8.0\eHandbook.BlazorWebApp.Server.genruntimeconfig.cache
 C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook.BlazorWebApp\eHandbook.BlazorWebApp.Server\obj\Debug\net8.0\ref\eHandbook.BlazorWebApp.Server.dll
+=======
+>>>>>>> 9edf5b2f35bdc00e66233f2e6ba625e935f92cff
