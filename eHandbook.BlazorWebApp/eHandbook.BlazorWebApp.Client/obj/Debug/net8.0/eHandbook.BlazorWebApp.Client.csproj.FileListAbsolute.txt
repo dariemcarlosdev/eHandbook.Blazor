@@ -621,6 +621,7 @@ C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook
 C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook.BlazorWebApp\eHandbook.BlazorWebApp.Client\obj\Debug\net8.0\eHandbook.BlazorWebApp.Client.AssemblyInfo.cs
 C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook.BlazorWebApp\eHandbook.BlazorWebApp.Client\obj\Debug\net8.0\eHandbook.BlazorWebApp.Client.csproj.CoreCompileInputs.cache
 C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook.BlazorWebApp\eHandbook.BlazorWebApp.Client\obj\Debug\net8.0\eHandbook.BlazorWebApp.Client.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook.BlazorWebApp\eHandbook.BlazorWebApp.Client\obj\Debug\net8.0\eHandbook.BlazorWebApp.Client.sourcelink.json
 C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook.BlazorWebApp\eHandbook.BlazorWebApp.Client\obj\Debug\net8.0\webcil\Microsoft.AspNetCore.Authorization.wasm
 C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook.BlazorWebApp\eHandbook.BlazorWebApp.Client\obj\Debug\net8.0\webcil\Microsoft.AspNetCore.Components.wasm
 C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook.BlazorWebApp\eHandbook.BlazorWebApp.Client\obj\Debug\net8.0\webcil\Microsoft.AspNetCore.Components.Forms.wasm
@@ -1035,4 +1036,3 @@ C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook
 C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook.BlazorWebApp\eHandbook.BlazorWebApp.Client\obj\Debug\net8.0\refint\eHandbook.BlazorWebApp.Client.dll
 C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook.BlazorWebApp\eHandbook.BlazorWebApp.Client\obj\Debug\net8.0\eHandbook.BlazorWebApp.Client.pdb
 C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook.BlazorWebApp\eHandbook.BlazorWebApp.Client\obj\Debug\net8.0\ref\eHandbook.BlazorWebApp.Client.dll
-C:\Users\335286\Documents\WORK\PROJECTS\EHANDBOOK.APP\eHandbook.Blazor\eHandbook.BlazorWebApp\eHandbook.BlazorWebApp.Client\obj\Debug\net8.0\eHandbook.BlazorWebApp.Client.sourcelink.json
