@@ -3,3 +3,11 @@
 ################################################################################
 
 /.vs/*
+/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Client/bin/*
+/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Client/obj/*
+/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Server/bin/*
+/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Server/obj/*
+/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Shared/bin/*
+/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Shared/obj/*
+/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.SharedTest/bin/*
+/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.SharedTest/obj/*
