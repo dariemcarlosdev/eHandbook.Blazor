@@ -3,15 +3,11 @@
 ################################################################################
 
 /.vs/*
-/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Client/obj/Debug/net8.0/eHandbook.BlazorWebApp.Client.AssemblyInfo.cs
-/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Client/obj/Debug/net8.0/eHandbook.BlazorWebApp.Client.AssemblyInfoInputs.cache
-/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Server/obj/Debug/net8.0/eHandbook.BlazorWebApp.Server.AssemblyInfo.cs
-/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Server/obj/Debug/net8.0/eHandbook.BlazorWebApp.Server.AssemblyInfoInputs.cache
-/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Server/obj/Debug/net8.0/project.razor.vs.bin
-/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Shared/obj/Debug/net8.0/eHandbook.BlazorWebApp.Shared.AssemblyInfo.cs
-/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Shared/obj/Debug/net8.0/eHandbook.BlazorWebApp.Shared.AssemblyInfoInputs.cache
-/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.SharedTest/eHandbook.BlazorWebApp.SharedTest/obj/Debug/net8.0/eHandbook.BlazorWebApp.SharedTest.AssemblyInfo.cs
-/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.SharedTest/eHandbook.BlazorWebApp.SharedTest/obj/Debug/net8.0/eHandbook.BlazorWebApp.SharedTest.AssemblyInfoInputs.cache
-/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Client/obj/Debug/net8.0/eHandbook.BlazorWebApp.Client.csproj.AssemblyReference.cache
-/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Server/obj/Debug/net8.0/eHandbook.BlazorWebApp.Server.csproj.AssemblyReference.cache
-/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.SharedTest/eHandbook.BlazorWebApp.SharedTest/obj/Debug/net8.0/eHandbook.BlazorWebApp.SharedTest.csproj.AssemblyReference.cache
+/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Client/obj/*
+/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Server/obj/*
+/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Shared/obj/*
+/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.SharedTest/eHandbook.BlazorWebApp.SharedTest/obj/*
+/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Client/bin/*
+/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Server/bin/*
+/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Shared/bin/*
+/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.SharedTest/eHandbook.BlazorWebApp.SharedTest/bin/*
