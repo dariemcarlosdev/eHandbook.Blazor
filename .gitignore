@@ -9,6 +9,6 @@
 /eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Server/.vs/*
 /eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Shared/bin/*
 /eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Shared/obj/*
-/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.SharedTest/eHandbook.BlazorWebApp.Test/bin/*
-/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.SharedTest/eHandbook.BlazorWebApp.Test/obj/*
+/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Test/eHandbook.BlazorWebApp.Test/bin/*
+/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Test/eHandbook.BlazorWebApp.Test/obj/*
 
