@@ -159,6 +159,47 @@ namespace eHandbook.BlazorWebApp.SharedTest
         [Fact]
         public async Task UpdateItemAsync_ReturnMessageSuccess_WhenApiCallIsSuccessFul()
         {
+            // Arrange
+            var manualId = "65b927ed-b563-4db4-9594-002fd5379178";
+            var expectedUri = $"api/V2/manuals/update";
+            var manual = new Manual(
+                Guid.Parse(manualId),
+                "new description",
+                "new description",
+                new AuditableDetails(CreatedBy: "335286",
+                                    CreatedOn: DateTime.Parse("2024-03-08T19:04:18.6591281"),
+                                    UpdatedBy: null,
+                                    UpdatedOn: null,
+                                    IsUpdated: false,
+                                    DeletedOn: null,
+                                    DeletedBy: null,
+                                    IsDeleted: false));
+
+            var apiResponse = new ApiResponsService<Manual> { Data = manual };
+            var ApiJsonResponse = JsonSerializer.Serialize(apiResponse);
+
+            //Mocking the HttpMessageHandler
+            //handlerMock is the mock object that we are going to use to intercept the call to the API, we are going to use it to return a predefined response.
+            Mock<HttpMessageHandler> handlerMock = Helpers.HttpMessageHandlerMock(expectedUri, ApiJsonResponse);
+
+            // httpClient is a new instance of HttpClient that we are going to use to make the request to the API
+            var httpClient = new HttpClient(handlerMock.Object) { BaseAddress = new Uri(baseApiUrl) };
+           
+            // service is the instance of the class that we are going to test and we pass the httpClient as a parameter to the constructor
+            var service = new EHandBookApiService(httpClient);
+
+            // Act is the part of the test where you actually run the method you are testing.
+            var result = await service.UpdateManualAsync(manual);
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.Equal(manual, result.Data);
+            handlerMock.Protected().Verify(
+            "SendAsync",
+                Times.Once(),
+                ItExpr.Is<HttpRequestMessage>(req => req.Method == HttpMethod.Put && req.RequestUri.ToString().EndsWith(expectedUri)),
+                ItExpr.IsAny<CancellationToken>()
+            );  
 
         }
 

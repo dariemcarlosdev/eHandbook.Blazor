@@ -23,11 +23,33 @@ namespace eHandbook.BlazorWebApp.Shared.Services
             throw new NotImplementedException();
         }
 
-        public Task UpdateTodoItemAsync(Manual item)
+        public async Task<ApiResponsService<Manual>> UpdateManualAsync(Manual manual)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var content = new StringContent(JsonSerializer.Serialize(manual), Encoding.UTF8, "application/json");
+                var response = await _httpClient.PutAsync($"api/V2/manuals/update", content);
+                var responseString = await response.Content.ReadAsStringAsync();
+                var options = new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true, // Makes the deserializer case-insensitive
+                    DefaultIgnoreCondition = JsonIgnoreCondition.Never // Include null values
+                };
+                var apiResponse = JsonSerializer.Deserialize<ApiResponsService<Manual>>(responseString, options);
+                return apiResponse;
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null; // Return null instead of a new instance.This can be appropiated to issue a message back to user if response was null.
+            }
         }
 
+        /// <summary>
+        /// this method is used to get all manuals
+        /// </summary>
+        /// <returns></returns>
         public async Task<ApiResponsService<IEnumerable<Manual>>> GetItemsAsync()
         {
             try
@@ -47,7 +69,12 @@ namespace eHandbook.BlazorWebApp.Shared.Services
                 return null; // Return null instead of a new instance.This can be appropiated to issue a message back to user if response was null.
             }
         }
-
+        
+        /// <summary>
+        /// This method is used to get a manual by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<ApiResponsService<Manual>> GetItemAsync(string id)
         {
             try
@@ -69,7 +96,11 @@ namespace eHandbook.BlazorWebApp.Shared.Services
             }
         }
 
-        //crate amethod for delete item
+        /// <summary>
+        /// This method is used to create a new manual
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<ApiResponsService<Manual>> SoftDeleteItemAsync(string id)
         {
             try
