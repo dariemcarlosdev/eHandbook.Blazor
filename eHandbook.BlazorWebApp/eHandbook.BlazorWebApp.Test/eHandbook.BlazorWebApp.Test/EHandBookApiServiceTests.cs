@@ -1,5 +1,6 @@
 using eHandbook.BlazorWebApp.Shared.Domain.Entities;
 using eHandbook.BlazorWebApp.Shared.Services;
+using eHandbook.BlazorWebApp.Test.Helpers;
 using Moq;
 using Moq.Protected;
 using System.Net;
@@ -11,10 +12,19 @@ namespace eHandbook.BlazorWebApp.SharedTest
     {
         private readonly string baseApiUrl = "https://localhost:7001/";
 
-        //Fact() is an attribute that tells the test runner that the method is a test method.
+
+
         [Fact]
+        //Fact() is an attribute that tells the test runner that the method is a test method.
+        /*
+            Endpoint: /api/V2/manuals/{Id}
+            Http Method: Get.
+            Parameters: Id* string($uuid)
+            Request Body: N/A
+        */
         public async Task GetItemAsync_ReturnsManual_WhenApiCallIsSuccessful()
         {
+
             //1.Arrange(Setup): is the part of the test where you set up everything you need to run the test.
 
             var manualId = "65B927ED-B563-4DB4-9594-002FD5379178";
@@ -40,7 +50,7 @@ namespace eHandbook.BlazorWebApp.SharedTest
             var ApiJsonResponse = JsonSerializer.Serialize(apiResponse);
 
             //Mocks the HttpMessageHandler: to intercept calls made by HttpClient and returns a predefined response.
-            Mock<HttpMessageHandler> handlerMock = HttpMessageHandlerMock(expectedUri, ApiJsonResponse);
+            Mock<HttpMessageHandler> handlerMock = Helpers.HttpMessageHandlerMock(expectedUri, ApiJsonResponse);
 
             //httpClient is the client that we are going to use to make the request to the API
             var httpClient = new HttpClient(handlerMock.Object) { BaseAddress = new Uri(baseApiUrl) };
@@ -71,6 +81,13 @@ namespace eHandbook.BlazorWebApp.SharedTest
 
         }
 
+        /*
+            Endpoint: /api/V2/manuals/
+            Http Method: Get.
+            Parameters: 
+            Query String: Filters(string), Sort(string), Page($int32), PageSize($int32)
+            Request Body: N/A
+        */
         [Fact]
         public async Task GetItemsAsync_ReturnsManualList_WhenApiCallIsSuccessfull()
         {
@@ -94,7 +111,7 @@ namespace eHandbook.BlazorWebApp.SharedTest
             var ApiJsonResponse = JsonSerializer.Serialize(apiResponse);
 
             //Mocks the HttpMessageHandler: to intercept calls made by HttpClient and returns a predefined response.
-            Mock<HttpMessageHandler> handlerMock2 = HttpMessageHandlerMock(expectedUri, ApiJsonResponse);
+            Mock<HttpMessageHandler> handlerMock2 = Helpers.HttpMessageHandlerMock(expectedUri, ApiJsonResponse);
 
             var httpClient = new HttpClient(handlerMock2.Object) { BaseAddress = new Uri(baseApiUrl) };
             var service = new EHandBookApiService(httpClient);
@@ -113,6 +130,45 @@ namespace eHandbook.BlazorWebApp.SharedTest
             );
         }
 
+        /*
+            Endpoint: /api/V2/manuals/create
+            Http Method: Post.
+            Parameters: N/A
+            Request Body *: 
+            ManualToCreateDto {
+            description*:  string minLength: 1
+            path*:  string minLength: 1
+        */
+        [Fact]
+        public async Task AddItemAsync_ReturnMessageSuccess_WhenApiCallIsSuccessFul()
+        {
+
+        }
+
+        /*
+            Endpoint: /api/V2/manuals/update
+            Http Method: Put
+            Parameters: N/A
+            Request Body*:
+            ManualToUpdateDto {
+            id*:	string($uuid)
+            description*: string minLength: 1
+            path*: string minLength: 1
+            }
+        */
+        [Fact]
+        public async Task UpdateItemAsync_ReturnMessageSuccess_WhenApiCallIsSuccessFul()
+        {
+
+        }
+
+
+        /*
+            Endpoint: /api/V2/manuals/delete/{Id}
+            Http Method: Put
+            Parameters: Id* string($uuid)
+            Request Body*: N/A
+        */
         [Fact]
         public async Task SoftDeleteItemAsync_ReturnMessageSussess_WhenApiCallIsSuccessful()
         {
@@ -123,7 +179,7 @@ namespace eHandbook.BlazorWebApp.SharedTest
             var ApiJsonResponse = JsonSerializer.Serialize(apiResponse);
 
             //Mocks the HttpMessageHandler: to intercept calls made by HttpClient and returns a predefined response.
-            Mock<HttpMessageHandler> handlerMock = HttpMessageHandlerMock(expectedUri, ApiJsonResponse);
+            Mock<HttpMessageHandler> handlerMock = Helpers.HttpMessageHandlerMock(expectedUri, ApiJsonResponse);
 
             var httpClient = new HttpClient(handlerMock.Object) { BaseAddress = new Uri(baseApiUrl) };
             var service = new EHandBookApiService(httpClient);
@@ -141,24 +197,35 @@ namespace eHandbook.BlazorWebApp.SharedTest
                 ItExpr.IsAny<CancellationToken>()
             );  
         }
-        //HttpMessageHandlerMock is a method that  
-        static Mock<HttpMessageHandler> HttpMessageHandlerMock(string expectedUri, string ApiJsonResponse)
+
+
+        /* 
+            Endpoint: /api/V2/manuals/delete
+            Http Method: Delete
+            Parameters: N/A
+            Request Body*:
+            ManualToDeleteDto {
+            id*:	string ($uuid)
+            description*: string minLength: 1
+            path*: string minLength: 1
+            }
+        */
+        [Fact]
+        public async Task HardDeleteItemAsync_ReturnMessageSussess_WhenApiCallIsSuccessful()
+        { 
+        
+        }
+
+        /*
+            Endpoint: /api/V2/manuals/deleteBy/{Id}
+            Http Method: Delete
+            Parameters: Id* string($uuid)
+            Request Body*: N/A
+         */
+        [Fact]
+        public async Task HardDeleteItemByIdAsync_ReturnMessageSussess_WhenApiCallIsSuccessful()
         {
-            //here handlerMock is the mock object that we are going to use to intercept the call to the API, we are going to use it to return a predefined response.
-            var handlerMock = new Mock<HttpMessageHandler>();
-            handlerMock.Protected()
-                .Setup<Task<HttpResponseMessage>>(
-                    "SendAsync",
-                    ItExpr.Is<HttpRequestMessage>(req => req.Method == HttpMethod.Put || req.Method == HttpMethod.Get && req.RequestUri.ToString().EndsWith(expectedUri)),
-                    ItExpr.IsAny<CancellationToken>()
-                )
-                .ReturnsAsync(new HttpResponseMessage
-                {
-                    StatusCode = HttpStatusCode.OK,
-                    Content = new StringContent(ApiJsonResponse),
-                })
-                .Verifiable();
-            return handlerMock;
+
         }
     }
 }
