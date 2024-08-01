@@ -1,107 +1,9 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\335286\\Documents\\WORK\\PROJECTS\\EHANDBOOK.APP\\eHandbook.Blazor\\eHandbook.BlazorWebApp\\eHandbook.BlazorWebApp.Client\\eHandbook.BlazorWebApp.Client.csproj": {}
+    "C:\\Users\\335286\\Documents\\WORK\\PROJECTS\\EHANDBOOK.APP\\eHandbook.Blazor\\eHandbook.BlazorWebApp\\eHandbook.BlazorWebApp.Test\\eHandbook.BlazorWebApp.Test\\eHandbook.BlazorWebApp.Test.csproj": {}
   },
   "projects": {
-    "C:\\Users\\335286\\Documents\\WORK\\PROJECTS\\EHANDBOOK.APP\\eHandbook.Blazor\\eHandbook.BlazorWebApp\\eHandbook.BlazorWebApp.Client\\eHandbook.BlazorWebApp.Client.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\335286\\Documents\\WORK\\PROJECTS\\EHANDBOOK.APP\\eHandbook.Blazor\\eHandbook.BlazorWebApp\\eHandbook.BlazorWebApp.Client\\eHandbook.BlazorWebApp.Client.csproj",
-        "projectName": "eHandbook.BlazorWebApp.Client",
-        "projectPath": "C:\\Users\\335286\\Documents\\WORK\\PROJECTS\\EHANDBOOK.APP\\eHandbook.Blazor\\eHandbook.BlazorWebApp\\eHandbook.BlazorWebApp.Client\\eHandbook.BlazorWebApp.Client.csproj",
-        "packagesPath": "C:\\Users\\335286\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\335286\\Documents\\WORK\\PROJECTS\\EHANDBOOK.APP\\eHandbook.Blazor\\eHandbook.BlazorWebApp\\eHandbook.BlazorWebApp.Client\\obj\\",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\335286\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net8.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
-            "projectReferences": {
-              "C:\\Users\\335286\\Documents\\WORK\\PROJECTS\\EHANDBOOK.APP\\eHandbook.Blazor\\eHandbook.BlazorWebApp\\eHandbook.BlazorWebApp.Shared\\eHandbook.BlazorWebApp.Shared.csproj": {
-                "projectPath": "C:\\Users\\335286\\Documents\\WORK\\PROJECTS\\EHANDBOOK.APP\\eHandbook.Blazor\\eHandbook.BlazorWebApp\\eHandbook.BlazorWebApp.Shared\\eHandbook.BlazorWebApp.Shared.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        }
-      },
-      "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
-          "dependencies": {
-            "Microsoft.AspNetCore.Components.WebAssembly": {
-              "target": "Package",
-              "version": "[8.0.6, )"
-            },
-            "Microsoft.NET.ILLink.Tasks": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[8.0.6, )",
-              "autoReferenced": true
-            },
-            "Microsoft.NET.Sdk.WebAssembly.Pack": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[8.0.6, )",
-              "autoReferenced": true
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-              "version": "[8.0.6, 8.0.6]"
-            }
-          ],
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.206/PortableRuntimeIdentifierGraph.json"
-        }
-      },
-      "runtimes": {
-        "browser-wasm": {
-          "#import": []
-        }
-      }
-    },
     "C:\\Users\\335286\\Documents\\WORK\\PROJECTS\\EHANDBOOK.APP\\eHandbook.Blazor\\eHandbook.BlazorWebApp\\eHandbook.BlazorWebApp.Shared\\eHandbook.BlazorWebApp.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -148,14 +50,6 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "Azure.Storage.Blobs": {
-              "target": "Package",
-              "version": "[12.21.1, )"
-            },
-            "Microsoft.AspNetCore.Http.Features": {
-              "target": "Package",
-              "version": "[5.0.17, )"
-            },
             "Microsoft.Extensions.Configuration.Abstractions": {
               "target": "Package",
               "version": "[8.0.0, )"
@@ -163,6 +57,101 @@
             "System.Collections": {
               "target": "Package",
               "version": "[4.3.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.206/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\335286\\Documents\\WORK\\PROJECTS\\EHANDBOOK.APP\\eHandbook.Blazor\\eHandbook.BlazorWebApp\\eHandbook.BlazorWebApp.Test\\eHandbook.BlazorWebApp.Test\\eHandbook.BlazorWebApp.Test.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\335286\\Documents\\WORK\\PROJECTS\\EHANDBOOK.APP\\eHandbook.Blazor\\eHandbook.BlazorWebApp\\eHandbook.BlazorWebApp.Test\\eHandbook.BlazorWebApp.Test\\eHandbook.BlazorWebApp.Test.csproj",
+        "projectName": "eHandbook.BlazorWebApp.Test",
+        "projectPath": "C:\\Users\\335286\\Documents\\WORK\\PROJECTS\\EHANDBOOK.APP\\eHandbook.Blazor\\eHandbook.BlazorWebApp\\eHandbook.BlazorWebApp.Test\\eHandbook.BlazorWebApp.Test\\eHandbook.BlazorWebApp.Test.csproj",
+        "packagesPath": "C:\\Users\\335286\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\335286\\Documents\\WORK\\PROJECTS\\EHANDBOOK.APP\\eHandbook.Blazor\\eHandbook.BlazorWebApp\\eHandbook.BlazorWebApp.Test\\eHandbook.BlazorWebApp.Test\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\335286\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\335286\\Documents\\WORK\\PROJECTS\\EHANDBOOK.APP\\eHandbook.Blazor\\eHandbook.BlazorWebApp\\eHandbook.BlazorWebApp.Shared\\eHandbook.BlazorWebApp.Shared.csproj": {
+                "projectPath": "C:\\Users\\335286\\Documents\\WORK\\PROJECTS\\EHANDBOOK.APP\\eHandbook.Blazor\\eHandbook.BlazorWebApp\\eHandbook.BlazorWebApp.Shared\\eHandbook.BlazorWebApp.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.8.0, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.20.70, )"
+            },
+            "coverlet.collector": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.5.3, )"
+            },
+            "xunit.runner.visualstudio": {
+              "target": "Package",
+              "version": "[2.5.3, )"
             }
           },
           "imports": [
