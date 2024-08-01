@@ -1,14 +1,16 @@
 ﻿################################################################################
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
-/.vs/*
-/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Client/bin/*
-/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Client/obj/*
-/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Server/bin/*
-/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Server/obj/*
-/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Server/.vs/*
-/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Shared/bin/*
-/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Shared/obj/*
-/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Test/eHandbook.BlazorWebApp.Test/bin/*
-/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Test/eHandbook.BlazorWebApp.Test/obj/*
+### DotnetCore ###
+# .NET Core build folders
 
+/.gitignore
+/.vs
+/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Client/obj
+/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Client/bin
+/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Server/obj
+/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Server/bin
+/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Shared/obj
+/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Shared/bin
+/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Test/obj
+/eHandbook.BlazorWebApp/eHandbook.BlazorWebApp.Test/bin
