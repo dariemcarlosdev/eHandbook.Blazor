@@ -13,7 +13,7 @@ namespace eHandbook.BlazorWebApp.Shared.Services
     {
         private readonly HttpClient _httpClient = httpClient;
 
-        public Task CreateItemAsync(Manual item)
+        public Task<ApiResponsService<ManualDto>> CreateItemAsync(ManualDto item)
         {
             throw new NotImplementedException();
         }
@@ -69,7 +69,7 @@ namespace eHandbook.BlazorWebApp.Shared.Services
                 return null; // Return null instead of a new instance.This can be appropiated to issue a message back to user if response was null.
             }
         }
-        
+
         /// <summary>
         /// This method is used to get a manual by id
         /// </summary>
