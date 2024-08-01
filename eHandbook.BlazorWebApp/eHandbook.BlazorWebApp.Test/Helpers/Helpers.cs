@@ -1,15 +1,10 @@
-﻿using Moq.Protected;
-using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Moq;
+using Moq.Protected;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace eHandbook.BlazorWebApp.Test.Helpers
+namespace eHandbook.BlazorWebApp.UnitTest.Helpers
 {
-     static class Helpers
+    internal static class Helpers
     {
 
         //HttpMessageHandlerMock is a method that returns a mock object of HttpMessageHandler, this method is used to intercept the call to the API and return a predefined response.
@@ -31,5 +26,6 @@ namespace eHandbook.BlazorWebApp.Test.Helpers
                 .Verifiable();
             return handlerMock;
         }
+
     }
 }

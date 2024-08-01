@@ -12,7 +12,7 @@ public class ManualDto
 
 
     #region Attributes and methods Not Used yed
-   
+
     //create property for upload file
     public IFormFile File { get; set; }
 

@@ -1,21 +1,20 @@
 using eHandbook.BlazorWebApp.Shared.Domain.Entities;
 using eHandbook.BlazorWebApp.Shared.Services;
-using eHandbook.BlazorWebApp.Test.Helpers;
 using Moq;
 using Moq.Protected;
-using System.Net;
 using System.Text.Json;
+using static eHandbook.BlazorWebApp.UnitTest.Helpers.Helpers;
 
-namespace eHandbook.BlazorWebApp.SharedTest
+namespace eHandbook.BlazorWebApp.UnitTest
 {
-    public class EHandBookApiServiceTests
+    public class EHandBookApiServiceUnitTest
     {
         private readonly string baseApiUrl = "https://localhost:7001/";
 
 
-
-        [Fact]
         //Fact() is an attribute that tells the test runner that the method is a test method.
+        [Fact]
+        //Implementation Status: Completed
         /*
             Endpoint: /api/V2/manuals/{Id}
             Http Method: Get.
@@ -26,7 +25,6 @@ namespace eHandbook.BlazorWebApp.SharedTest
         {
 
             //1.Arrange(Setup): is the part of the test where you set up everything you need to run the test.
-
             var manualId = "65B927ED-B563-4DB4-9594-002FD5379178";
             var expectedUri = $"api/V2/manuals/{manualId}";
             var manual = new Manual(
@@ -42,7 +40,7 @@ namespace eHandbook.BlazorWebApp.SharedTest
                                     DeletedBy: null,
                                     IsDeleted: false));
 
-            var apiResponse = new ApiResponsService<Manual>
+            var apiResponse = new ApiResponseService<Manual>
             {
                 Data = manual
             };
@@ -50,7 +48,7 @@ namespace eHandbook.BlazorWebApp.SharedTest
             var ApiJsonResponse = JsonSerializer.Serialize(apiResponse);
 
             //Mocks the HttpMessageHandler: to intercept calls made by HttpClient and returns a predefined response.
-            Mock<HttpMessageHandler> handlerMock = Helpers.HttpMessageHandlerMock(expectedUri, ApiJsonResponse);
+            Mock<HttpMessageHandler> handlerMock = HttpMessageHandlerMock(expectedUri, ApiJsonResponse);
 
             //httpClient is the client that we are going to use to make the request to the API
             var httpClient = new HttpClient(handlerMock.Object) { BaseAddress = new Uri(baseApiUrl) };
@@ -81,17 +79,19 @@ namespace eHandbook.BlazorWebApp.SharedTest
 
         }
 
-        /*
-            Endpoint: /api/V2/manuals/
-            Http Method: Get.
-            Parameters: 
-            Query String: Filters(string), Sort(string), Page($int32), PageSize($int32)
-            Request Body: N/A
-        */
+
         [Fact]
+        /*
+           Endpoint: /api/V2/manuals/
+           Http Method: Get.
+           Parameters: 
+           Query String: Filters(string), Sort(string), Page($int32), PageSize($int32)
+           Request Body: N/A
+       */
+        //Implementation Status: Completed
         public async Task GetItemsAsync_ReturnsManualList_WhenApiCallIsSuccessfull()
         {
-            // Arrange
+            // Arrange: Is the part of the test where you set up everything you need to run the test.
             var expectedUri = "api/V2/manuals";
             var manuals = new List<Manual> {
             new Manual(
@@ -107,11 +107,11 @@ namespace eHandbook.BlazorWebApp.SharedTest
                                     DeletedBy: null,
                                     IsDeleted: false))
             };
-            var apiResponse = new ApiResponsService<IEnumerable<Manual>> { Data = manuals };
+            var apiResponse = new ApiResponseService<IEnumerable<Manual>> { Data = manuals };
             var ApiJsonResponse = JsonSerializer.Serialize(apiResponse);
 
             //Mocks the HttpMessageHandler: to intercept calls made by HttpClient and returns a predefined response.
-            Mock<HttpMessageHandler> handlerMock2 = Helpers.HttpMessageHandlerMock(expectedUri, ApiJsonResponse);
+            Mock<HttpMessageHandler> handlerMock2 = HttpMessageHandlerMock(expectedUri, ApiJsonResponse);
 
             var httpClient = new HttpClient(handlerMock2.Object) { BaseAddress = new Uri(baseApiUrl) };
             var service = new EHandBookApiService(httpClient);
@@ -130,6 +130,8 @@ namespace eHandbook.BlazorWebApp.SharedTest
             );
         }
 
+
+        [Fact]
         /*
             Endpoint: /api/V2/manuals/create
             Http Method: Post.
@@ -139,12 +141,43 @@ namespace eHandbook.BlazorWebApp.SharedTest
             description*:  string minLength: 1
             path*:  string minLength: 1
         */
-        [Fact]
+        //Implementation Status: In Progress
         public async Task AddItemAsync_ReturnMessageSuccess_WhenApiCallIsSuccessFul()
         {
+            // Arrange: In this part of the test, you set up everything you need to run the test.
+            var expectedUri = "api/V2/manuals/create";
+            var manual = new ManualDto
+            {
+                Description = "open_source_solutions_vermont.zirz",
+                Path = "/var/mail/roi.aep"
+            };
+
+            var apiResponse = new ApiResponseService<ManualDto> { Data = manual };
+            var ApiJsonResponse = JsonSerializer.Serialize(apiResponse);
+
+            //Mocks the HttpMessageHandler: to intercept calls made by HttpClient and returns a predefined response.
+            Mock<HttpMessageHandler> handlerMock = HttpMessageHandlerMock(expectedUri, ApiJsonResponse);
+
+            var httpClient = new HttpClient(handlerMock.Object) { BaseAddress = new Uri(baseApiUrl) };
+            var service = new EHandBookApiService(httpClient);
+
+            // Act
+            var result = await service.CreateItemAsync(manual);
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.Equal(manual, result.Data);
+            handlerMock.Protected().Verify(
+            "SendAsync",
+                Times.Once(),
+                ItExpr.Is<HttpRequestMessage>(req => req.Method == HttpMethod.Post && req.RequestUri.ToString().EndsWith(expectedUri)),
+                ItExpr.IsAny<CancellationToken>()
+            );
 
         }
 
+
+        [Fact]
         /*
             Endpoint: /api/V2/manuals/update
             Http Method: Put
@@ -156,7 +189,7 @@ namespace eHandbook.BlazorWebApp.SharedTest
             path*: string minLength: 1
             }
         */
-        [Fact]
+        //Implementation Status: Completed
         public async Task UpdateItemAsync_ReturnMessageSuccess_WhenApiCallIsSuccessFul()
         {
             // Arrange
@@ -175,16 +208,16 @@ namespace eHandbook.BlazorWebApp.SharedTest
                                     DeletedBy: null,
                                     IsDeleted: false));
 
-            var apiResponse = new ApiResponsService<Manual> { Data = manual };
+            var apiResponse = new ApiResponseService<Manual> { Data = manual };
             var ApiJsonResponse = JsonSerializer.Serialize(apiResponse);
 
             //Mocking the HttpMessageHandler
             //handlerMock is the mock object that we are going to use to intercept the call to the API, we are going to use it to return a predefined response.
-            Mock<HttpMessageHandler> handlerMock = Helpers.HttpMessageHandlerMock(expectedUri, ApiJsonResponse);
+            Mock<HttpMessageHandler> handlerMock = HttpMessageHandlerMock(expectedUri, ApiJsonResponse);
 
             // httpClient is a new instance of HttpClient that we are going to use to make the request to the API
             var httpClient = new HttpClient(handlerMock.Object) { BaseAddress = new Uri(baseApiUrl) };
-           
+
             // service is the instance of the class that we are going to test and we pass the httpClient as a parameter to the constructor
             var service = new EHandBookApiService(httpClient);
 
@@ -199,28 +232,30 @@ namespace eHandbook.BlazorWebApp.SharedTest
                 Times.Once(),
                 ItExpr.Is<HttpRequestMessage>(req => req.Method == HttpMethod.Put && req.RequestUri.ToString().EndsWith(expectedUri)),
                 ItExpr.IsAny<CancellationToken>()
-            );  
+            );
 
         }
 
 
-        /*
-            Endpoint: /api/V2/manuals/delete/{Id}
-            Http Method: Put
-            Parameters: Id* string($uuid)
-            Request Body*: N/A
-        */
+
         [Fact]
+        /*
+        Endpoint: /api/V2/manuals/delete/{Id}
+        Http Method: Put
+        Parameters: Id* string($uuid)
+        Request Body*: N/A
+        */
+        //Implementation Status: Completed
         public async Task SoftDeleteItemAsync_ReturnMessageSussess_WhenApiCallIsSuccessful()
         {
             // Arrange
             var manualId = "65b927ed-b563-4db4-9594-002fd5379178";
             var expectedUri = $"api/V2/manuals/delete/{manualId}";
-            var apiResponse = new ApiResponsService<Manual> { Metadata = new() { Message = "Manual deleted successfully" } };
+            var apiResponse = new ApiResponseService<Manual> { Metadata = new() { Message = "Manual deleted successfully" } };
             var ApiJsonResponse = JsonSerializer.Serialize(apiResponse);
 
             //Mocks the HttpMessageHandler: to intercept calls made by HttpClient and returns a predefined response.
-            Mock<HttpMessageHandler> handlerMock = Helpers.HttpMessageHandlerMock(expectedUri, ApiJsonResponse);
+            Mock<HttpMessageHandler> handlerMock = HttpMessageHandlerMock(expectedUri, ApiJsonResponse);
 
             var httpClient = new HttpClient(handlerMock.Object) { BaseAddress = new Uri(baseApiUrl) };
             var service = new EHandBookApiService(httpClient);
@@ -236,34 +271,37 @@ namespace eHandbook.BlazorWebApp.SharedTest
                 Times.Once(),
                 ItExpr.Is<HttpRequestMessage>(req => req.Method == HttpMethod.Put && req.RequestUri.ToString().EndsWith(expectedUri)),
                 ItExpr.IsAny<CancellationToken>()
-            );  
+            );
         }
 
 
+        [Fact]
         /* 
-            Endpoint: /api/V2/manuals/delete
-            Http Method: Delete
-            Parameters: N/A
-            Request Body*:
-            ManualToDeleteDto {
-            id*:	string ($uuid)
-            description*: string minLength: 1
-            path*: string minLength: 1
-            }
+        Endpoint: /api/V2/manuals/delete
+        Http Method: Delete
+        Parameters: N/A
+        Request Body*:
+        ManualToDeleteDto {
+        id*:	string ($uuid)
+        description*: string minLength: 1
+        path*: string minLength: 1
+        }
         */
-        [Fact]
+        //Implementation Status: In Progress
         public async Task HardDeleteItemAsync_ReturnMessageSussess_WhenApiCallIsSuccessful()
-        { 
-        
+        {
+
         }
 
-        /*
-            Endpoint: /api/V2/manuals/deleteBy/{Id}
-            Http Method: Delete
-            Parameters: Id* string($uuid)
-            Request Body*: N/A
-         */
+
         [Fact]
+        /*
+        Endpoint: /api/V2/manuals/deleteBy/{Id}
+        Http Method: Delete
+        Parameters: Id* string($uuid)
+        Request Body*: N/A
+        */
+        //Implementation Status: In Progress
         public async Task HardDeleteItemByIdAsync_ReturnMessageSussess_WhenApiCallIsSuccessful()
         {
 
