@@ -14,17 +14,12 @@ namespace eHandbook.BlazorWebApp.Shared.Services
     {
         private readonly HttpClient _httpClient = httpClient;
 
-        public Task<ApiResponsService<ManualDto>> CreateItemAsync(ManualDto item)
+        public Task<ApiResponsService<ManualDto>> CreateItemAsync(ManualToCreateDto item)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Manual> GetItem(string token)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<ApiResponsService<Manual>> UpdateManualAsync(Manual manual)
+        public async Task<ApiResponsService<ManualDto>> UpdateManualAsync(ManualToUpdateDto manual)
         {
             try
             {
@@ -36,7 +31,7 @@ namespace eHandbook.BlazorWebApp.Shared.Services
                     PropertyNameCaseInsensitive = true, // Makes the deserializer case-insensitive
                     DefaultIgnoreCondition = JsonIgnoreCondition.Never // Include null values
                 };
-                var apiResponse = JsonSerializer.Deserialize<ApiResponsService<Manual>>(responseString, options);
+                var apiResponse = JsonSerializer.Deserialize<ApiResponsService<ManualDto>>(responseString, options);
                 return apiResponse;
 
             }
@@ -51,7 +46,7 @@ namespace eHandbook.BlazorWebApp.Shared.Services
         /// this method is used to get all manuals
         /// </summary>
         /// <returns></returns>
-        public async Task<ApiResponsService<IEnumerable<Manual>>> GetItemsAsync()
+        public async Task<ApiResponsService<IEnumerable<ManualDto>>> GetManualsAsync()
         {
             try
             {
@@ -61,7 +56,7 @@ namespace eHandbook.BlazorWebApp.Shared.Services
                     PropertyNameCaseInsensitive = true, // Makes the deserializer case-insensitive
                     DefaultIgnoreCondition = JsonIgnoreCondition.Never // Include null values
                 };
-                var apiResponse = JsonSerializer.Deserialize<ApiResponsService<IEnumerable<Manual>>>(responseString, options);
+                var apiResponse = JsonSerializer.Deserialize<ApiResponsService<IEnumerable<ManualDto>>>(responseString, options);
                 return apiResponse;
             }
             catch (Exception ex)
@@ -76,7 +71,7 @@ namespace eHandbook.BlazorWebApp.Shared.Services
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public async Task<ApiResponsService<Manual>> GetItemAsync(string id)
+        public async Task<ApiResponsService<ManualDto>> GetItemAsync(string id)
         {
             try
             {
@@ -87,7 +82,7 @@ namespace eHandbook.BlazorWebApp.Shared.Services
                     PropertyNameCaseInsensitive = true, // Makes the deserializer case-insensitive
                     DefaultIgnoreCondition = JsonIgnoreCondition.Never // Include null values
                 };
-                var apiResponse = JsonSerializer.Deserialize<ApiResponsService<Manual>>(responseString, options);
+                var apiResponse = JsonSerializer.Deserialize<ApiResponsService<ManualDto>>(responseString, options);
                 return apiResponse;
             }
             catch (Exception ex)
@@ -102,7 +97,7 @@ namespace eHandbook.BlazorWebApp.Shared.Services
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public async Task<ApiResponsService<Manual>> SoftDeleteItemAsync(string id)
+        public async Task<ApiResponsService<ManualDto>> SoftDeleteItemAsync(string id)
         {
             try
             {
@@ -115,7 +110,7 @@ namespace eHandbook.BlazorWebApp.Shared.Services
                     PropertyNameCaseInsensitive = true, // Makes the deserializer case-insensitive
                     DefaultIgnoreCondition = JsonIgnoreCondition.Never // Include null values
                 };
-                var apiResponse = JsonSerializer.Deserialize<ApiResponsService<Manual>>(responseString, options);
+                var apiResponse = JsonSerializer.Deserialize<ApiResponsService<ManualDto>>(responseString, options);
                 return apiResponse;
             }
             catch (Exception ex)
