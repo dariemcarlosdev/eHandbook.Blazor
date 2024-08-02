@@ -31,8 +31,28 @@ else if(manual != null)
             <dd>@manual.Description</dd>
             <dt>Path</dt>
             <dd>@manual.Path</dd>
-            <dt>IsDeleted</dt>
-            <dd>@manual.AuditableDetails.IsDeleted</dd>
+            <dt>Auditables</dt>
+            <dd>
+                //list auditable properties
+                <dl>
+                    <dt>Created By</dt>
+                    <dd>@manual.AuditableDetails.CreatedBy</dd>
+                    <dt>Created On</dt>
+                    <dd>@manual.AuditableDetails.CreatedOn</dd>
+                    <dt>Modified By</dt>
+                    <dd>@manual.AuditableDetails.UpdatedBy</dd>
+                    <dt>Modified On</dt>
+                    <dd>@manual.AuditableDetails.UpdatedOn</dd>
+                    <dt>IsUpdated?</dt>
+                    <dd>@manual.AuditableDetails.IsUpdated</dd>
+                    <dt>Is Deleted</dt>
+                    <dd>@manual.AuditableDetails.IsDeleted</dd>
+                    <dt>Deleted On</dt>
+                    <dd>@manual.AuditableDetails.DeletedOn</dd>
+                    <dt>Deleted By</dt>
+                    <dd>@manual.AuditableDetails.DeletedBy</dd>
+                    </dl>
+            </dd>
         </dl>
     </CardBody>
     <CardFooter>
@@ -52,7 +72,7 @@ else
 }
 @code {
     [Parameter] public string Id { get; set; }
-    private Manual manual;
+    private ManualDto manual;
     private bool notFound = false; // Flag to indicate if the manual was not found
     private bool isLoading = true; // Flag to indicate the loading state to prevent the rendering of the manual details until the fetch operation is complete.
 

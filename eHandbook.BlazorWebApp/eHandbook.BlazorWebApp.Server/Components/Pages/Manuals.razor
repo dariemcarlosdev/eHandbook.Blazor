@@ -1,4 +1,5 @@
 ﻿@page "/manuals"
+
 @inject EHandBookApiService api
 @inject ManualStateService ItemState
 @inject NavigationManager navigationManager
@@ -24,7 +25,8 @@ else
                 <td>Id</td>
                 <th>Description</th>
                 <th>Path</th>
-                <th>Auditable Props</th>
+                <th>CreatedBy</th>
+                <th>CreatedOn</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -35,7 +37,8 @@ else
                     <td>@manual.Id</td>
                     <td>@manual.Description</td>
                     <td>@manual.Path</td>
-                    <td>@manual.AuditableDetails.IsDeleted</td>
+                    <td>@manual.AuditableDetails.CreatedBy</td>
+                    <td>@manual.AuditableDetails.CreatedOn</td>
                     <td>
                         <button class="btn btn-primary">Edit</button>
                         <button class="btn btn-danger">Delete</button>
@@ -53,12 +56,12 @@ else
 
     //define List of records type of Manual
    
-    private IEnumerable<Manual> manuals;
+    private IEnumerable<ManualDto> manuals;
     private Guid Id { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        var response = await api.GetItemsAsync();
+        var response = await api.GetManualsAsync();
        
         if (response != null && response.Metadata != null && response.Metadata.Succeeded == true)
         {
