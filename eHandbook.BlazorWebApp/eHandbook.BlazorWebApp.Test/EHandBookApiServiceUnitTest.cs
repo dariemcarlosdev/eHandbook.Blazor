@@ -4,6 +4,7 @@ using Moq;
 using Moq.Protected;
 using System.Text.Json;
 using static eHandbook.BlazorWebApp.UnitTest.Helpers.Helpers;
+using eHandbook.BlazorWebApp.Shared.Domain.DTOs.Manual;
 
 namespace eHandbook.BlazorWebApp.UnitTest
 {

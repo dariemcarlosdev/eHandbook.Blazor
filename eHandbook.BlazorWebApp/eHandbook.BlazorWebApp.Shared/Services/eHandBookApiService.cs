@@ -1,4 +1,5 @@
-﻿using eHandbook.BlazorWebApp.Shared.Domain.EntitiesModels;
+﻿using eHandbook.BlazorWebApp.Shared.Domain.DTOs.Manual;
+using eHandbook.BlazorWebApp.Shared.Domain.EntitiesModels;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
