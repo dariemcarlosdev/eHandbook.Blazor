@@ -1,4 +1,4 @@
-﻿using eHandbook.BlazorWebApp.Shared.Domain.Entities;
+﻿using eHandbook.BlazorWebApp.Shared.Domain.EntitiesModels;
 using System.Diagnostics;
 using System.Text.Json.Serialization;
 

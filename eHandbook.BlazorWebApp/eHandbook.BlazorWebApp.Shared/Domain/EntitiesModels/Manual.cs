@@ -1,4 +1,4 @@
-﻿namespace eHandbook.BlazorWebApp.Shared.Domain.Entities
+﻿namespace eHandbook.BlazorWebApp.Shared.Domain.EntitiesModels
 {
 
     //Records are immutable by default, which means that once you create a record, you can't change its properties.

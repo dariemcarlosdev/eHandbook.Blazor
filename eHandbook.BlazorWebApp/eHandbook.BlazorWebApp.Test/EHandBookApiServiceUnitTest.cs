@@ -1,4 +1,4 @@
-using eHandbook.BlazorWebApp.Shared.Domain.Entities;
+using eHandbook.BlazorWebApp.Shared.Domain.EntitiesModels;
 using eHandbook.BlazorWebApp.Shared.Services;
 using Moq;
 using Moq.Protected;

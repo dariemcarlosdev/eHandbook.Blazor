@@ -1,4 +1,4 @@
-﻿namespace eHandbook.BlazorWebApp.Shared.Domain.Entities
+﻿namespace eHandbook.BlazorWebApp.Shared.Domain.EntitiesModels
 {
     public class Metadata
     {
