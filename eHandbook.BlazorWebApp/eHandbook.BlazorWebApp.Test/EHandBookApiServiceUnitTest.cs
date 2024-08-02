@@ -28,20 +28,24 @@ namespace eHandbook.BlazorWebApp.UnitTest
             //1.Arrange(Setup): is the part of the test where you set up everything you need to run the test.
             var manualId = "65B927ED-B563-4DB4-9594-002FD5379178";
             var expectedUri = $"api/V2/manuals/{manualId}";
-            var manual = new Manual(
-                Guid.Parse(manualId),
-                "open_source_solutions_vermont.zirz",
-                "/var/mail/roi.aep",
-                new AuditableDetails(CreatedBy: "335286",
-                                    CreatedOn: DateTime.Parse("2024-03-08T19:04:18.6591281"),
-                                    UpdatedBy: null,
-                                    UpdatedOn: null,
-                                    IsUpdated: false,
-                                    DeletedOn: null,
-                                    DeletedBy: null,
-                                    IsDeleted: false));
+            // Create new instance of ManualDto record using positional parameters
+            var manual = new ManualDto(
+                Id: Guid.Parse(manualId),
+                Description: "open_source_solutions_vermont.zirz",
+                Path: "/var/mail/roi.aep",
+                AuditableDetails: new AuditableDetailsDto(
+                    CreatedBy: "335286",
+                    CreatedOn: DateTime.Parse("2024-03-08T19:04:18.6591281"),
+                    UpdatedBy: null,
+                    UpdatedOn: null,
+                    IsUpdated: false,
+                    DeletedOn: null,
+                    DeletedBy: null,
+                    IsDeleted: false
+                )
+            );
 
-            var apiResponse = new ApiResponseService<Manual>
+            var apiResponse = new ApiResponseService<ManualDto>
             {
                 Data = manual
             };
@@ -94,12 +98,12 @@ namespace eHandbook.BlazorWebApp.UnitTest
         {
             // Arrange: Is the part of the test where you set up everything you need to run the test.
             var expectedUri = "api/V2/manuals";
-            var manuals = new List<Manual> {
-            new Manual(
+            var manuals = new List<ManualDto> {
+            new ManualDto(
                 Guid.Parse("65B927ED-B563-4DB4-9594-002FD5379178"),
                 "open_source_solutions_vermont.zirz",
                 "/var/mail/roi.aep",
-                new AuditableDetails(CreatedBy: "335286",
+                new AuditableDetailsDto(CreatedBy: "335286",
                                     CreatedOn: DateTime.Parse("2024-03-08T19:04:18.6591281"),
                                     UpdatedBy: null,
                                     UpdatedOn: null,
@@ -108,7 +112,7 @@ namespace eHandbook.BlazorWebApp.UnitTest
                                     DeletedBy: null,
                                     IsDeleted: false))
             };
-            var apiResponse = new ApiResponseService<IEnumerable<Manual>> { Data = manuals };
+            var apiResponse = new ApiResponseService<IEnumerable<ManualDto>> { Data = manuals };
             var ApiJsonResponse = JsonSerializer.Serialize(apiResponse);
 
             //Mocks the HttpMessageHandler: to intercept calls made by HttpClient and returns a predefined response.
@@ -118,7 +122,7 @@ namespace eHandbook.BlazorWebApp.UnitTest
             var service = new EHandBookApiService(httpClient);
 
             // Act
-            var result = await service.GetItemsAsync();
+            var result = await service.GetManualsAsync();
 
             // Assert
             Assert.NotNull(result);
@@ -147,13 +151,14 @@ namespace eHandbook.BlazorWebApp.UnitTest
         {
             // Arrange: In this part of the test, you set up everything you need to run the test.
             var expectedUri = "api/V2/manuals/create";
-            var manual = new ManualDto
-            {
-                Description = "open_source_solutions_vermont.zirz",
-                Path = "/var/mail/roi.aep"
-            };
+            var manualToCreate = new ManualToCreateDto
+            (
+                Description: "open_source_solutions_vermont.zirz",
+                Path: "/var/mail/roi.aep"
+            );
 
-            var apiResponse = new ApiResponseService<ManualDto> { Data = manual };
+            //apiResponse simulate the response that we are going to return when the API is called.
+            var apiResponse = new ApiResponseService<ManualDto> { Data = manualToCreate };
             var ApiJsonResponse = JsonSerializer.Serialize(apiResponse);
 
             //Mocks the HttpMessageHandler: to intercept calls made by HttpClient and returns a predefined response.
@@ -163,11 +168,11 @@ namespace eHandbook.BlazorWebApp.UnitTest
             var service = new EHandBookApiService(httpClient);
 
             // Act
-            var result = await service.CreateItemAsync(manual);
+            var result = await service.CreateItemAsync(manualToCreate);
 
             // Assert
             Assert.NotNull(result);
-            Assert.Equal(manual, result.Data);
+            Assert.Equal(manualToCreate, result.Data);
             handlerMock.Protected().Verify(
             "SendAsync",
                 Times.Once(),
@@ -196,20 +201,12 @@ namespace eHandbook.BlazorWebApp.UnitTest
             // Arrange
             var manualId = "65b927ed-b563-4db4-9594-002fd5379178";
             var expectedUri = $"api/V2/manuals/update";
-            var manual = new Manual(
+            var manualToUpdate = new ManualToUpdateDto(
                 Guid.Parse(manualId),
                 "new description",
-                "new description",
-                new AuditableDetails(CreatedBy: "335286",
-                                    CreatedOn: DateTime.Parse("2024-03-08T19:04:18.6591281"),
-                                    UpdatedBy: null,
-                                    UpdatedOn: null,
-                                    IsUpdated: false,
-                                    DeletedOn: null,
-                                    DeletedBy: null,
-                                    IsDeleted: false));
+                "new description");
 
-            var apiResponse = new ApiResponseService<Manual> { Data = manual };
+            var apiResponse = new ApiResponseService<ManualDto> { Data = manualToUpdate };
             var ApiJsonResponse = JsonSerializer.Serialize(apiResponse);
 
             //Mocking the HttpMessageHandler
@@ -223,11 +220,11 @@ namespace eHandbook.BlazorWebApp.UnitTest
             var service = new EHandBookApiService(httpClient);
 
             // Act is the part of the test where you actually run the method you are testing.
-            var result = await service.UpdateManualAsync(manual);
+            var result = await service.UpdateManualAsync(manualToUpdate);
 
             // Assert
             Assert.NotNull(result);
-            Assert.Equal(manual, result.Data);
+            Assert.Equal(manualToUpdate, result.Data);
             handlerMock.Protected().Verify(
             "SendAsync",
                 Times.Once(),
@@ -252,7 +249,7 @@ namespace eHandbook.BlazorWebApp.UnitTest
             // Arrange
             var manualId = "65b927ed-b563-4db4-9594-002fd5379178";
             var expectedUri = $"api/V2/manuals/delete/{manualId}";
-            var apiResponse = new ApiResponseService<Manual> { Metadata = new() { Message = "Manual deleted successfully" } };
+            var apiResponse = new ApiResponseService<ManualDto> { Metadata = new() { Message = "Manual deleted successfully" } };
             var ApiJsonResponse = JsonSerializer.Serialize(apiResponse);
 
             //Mocks the HttpMessageHandler: to intercept calls made by HttpClient and returns a predefined response.
