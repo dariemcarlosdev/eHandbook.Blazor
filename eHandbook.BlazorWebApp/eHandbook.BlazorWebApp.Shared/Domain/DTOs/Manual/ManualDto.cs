@@ -7,19 +7,25 @@ namespace eHandbook.BlazorWebApp.Shared.Domain.DTOs.Manual
     /// 1.	Regular Expression for Path Validation: Added a RegularExpression attribute to the Path property to include path validation as per your comment.
     ///    The regular expression ^[\w\-\./\\]+ is a basic example that you might need to adjust based on your specific path validation requirements.
 
-    public record ManualDto
+    public record ManualDto(
+        Guid Id,
+        string Description,
+        string Path,
+        AuditableDetailsDto AuditableDetails
+    )
     {
-        public Guid Id { get; init; }
-        [Required(ErrorMessage = "Manual Description is required")]
-        public string? Description { get; init; }
+        //this method is used to convert ManualToCreateDto to ManualDto using implicit conversion operator
+        //implicit operator is used to convert one type to another type without any explicit casting
+        public static implicit operator ManualDto(ManualToCreateDto v)
+        {
+            //implement conversion logic
+            return new ManualDto(Guid.NewGuid(), v.Description, v.Path, new AuditableDetailsDto("System", DateTime.Now, null, null, false, null, null, false));
 
-        [Required(ErrorMessage = "Manual Path is required")]
-        //[RegularExpression(@"^[\w\-\./\\]+", ErrorMessage = "Invalid Path format")]
-        public string? Path { get; init; }
-        //This propertie is marked with set accessor to allow the property to be set outside of the object initializer or constructor.
-        public AuditableDetailsDto? AuditableDetails { get; set; }
+        }
 
-
-
+        public static implicit operator ManualDto(ManualToUpdateDto v)
+        {
+            return new ManualDto(v.Id, v.Description, v.Path, new AuditableDetailsDto("System", DateTime.Now, null, null, false, null, null, false));
+        }
     }
 }
