@@ -19,13 +19,17 @@ namespace eHandbook.BlazorWebApp.Shared.Domain.DTOs.Manual
         public static implicit operator ManualDto(ManualToCreateDto v)
         {
             //implement conversion logic
-            return new ManualDto(Guid.NewGuid(), v.Description, v.Path, new AuditableDetailsDto("System", DateTime.Now, null, null, false, null, null, false));
-
+            return new ManualDto(Guid.NewGuid(), v.Description, v.Path, new AuditableDetailsDto("System", DateTime.Now, "System", DateTime.Now, false, null, null, false));
         }
 
         public static implicit operator ManualDto(ManualToUpdateDto v)
         {
-            return new ManualDto(v.Id, v.Description, v.Path, new AuditableDetailsDto("System", DateTime.Now, null, null, false, null, null, false));
+            return new ManualDto(v.Id, v.Description, v.Path, new AuditableDetailsDto("System", DateTime.Now, "System", DateTime.Now, false, null, null, false));
+        }
+
+        public static implicit operator ManualDto(ManualToDeleteDto v)
+        {
+            return new ManualDto(v.Id, v.Description, v.Path, new AuditableDetailsDto("System", DateTime.Now, "System", DateTime.Now, false, DateTime.Now, "System", true));
         }
     }
 }
