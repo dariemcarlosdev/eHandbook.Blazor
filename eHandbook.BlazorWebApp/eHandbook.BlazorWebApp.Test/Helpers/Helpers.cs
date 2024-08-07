@@ -15,7 +15,13 @@ namespace eHandbook.BlazorWebApp.UnitTest.Helpers
             handlerMock.Protected()
                 .Setup<Task<HttpResponseMessage>>(
                     "SendAsync",
-                    ItExpr.Is<HttpRequestMessage>(req => req.Method == HttpMethod.Put || req.Method == HttpMethod.Get && req.RequestUri.ToString().EndsWith(expectedUri)),
+                    ItExpr.Is<HttpRequestMessage>(
+                        req => // We are intercepting the call to the API and returning a predefined response
+                        req.Method == HttpMethod.Put || //HttpMethod.Put is used to update the manual
+                        req.Method == HttpMethod.Delete || //HttpMethod.Delete is used to delete the manual
+                        req.Method == HttpMethod.Get || //HttpMethod.Get is used to get the manual
+                        req.Method == HttpMethod.Post && //HttpMethod.Post is used to create the manual
+                        req.RequestUri.ToString().EndsWith(expectedUri)),
                     ItExpr.IsAny<CancellationToken>()
                 )
                 .ReturnsAsync(new HttpResponseMessage
